@@ -1,0 +1,68 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 14.07.2024 10:02:16
+// Design Name: 
+// Module Name: module41_1_tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module module41_1_tb( );
+
+localparam i1=4,f1=4;
+localparam i2=5,f2=5;
+localparam out_i=5,out_f=5;
+reg clk;
+reg rst;
+reg [i1+f1-1:0]a;
+reg[i2+f2-1:0]b;
+reg sign_add;
+wire overflow,underflow;
+wire[out_i+out_f-1:0]sum;integer i;
+module41_1 #(i1,f1,i2,f2,out_i,out_f) a1(clk,rst,a,b,sign_add,overflow,underflow,sum);
+
+
+initial begin
+clk=1;
+forever #5 clk =~clk;
+end
+
+initial begin
+sign_add=1;
+
+end
+
+initial
+begin
+rst=1;
+#10
+rst=0;
+end
+
+always@(posedge clk)
+begin
+#10
+a=$random;
+b=$random;
+end
+
+
+
+
+
+
+endmodule
+
